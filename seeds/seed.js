@@ -1,7 +1,4 @@
 const sequelize = require('../config/connection');
-// const Collections = require('typescript-collections');
-// const pokedex = require('pokedex2.js');
-// const dex = pokedex();
 
 // const { Pokes, Evolutions } = require('../models');
 
@@ -20,4 +17,4 @@ const sequelize = require('../config/connection');
 //     console.log(pokemon)
 // })
 
-// console.log("seeding...");
+console.log("seeding...");
