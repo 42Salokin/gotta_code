@@ -1,17 +1,17 @@
 // Import the models for Pokes, Evolutions, Team, and User
-const Pokemon = require('./Pokes');
+const Pokes = require('./Pokes');
 const Evolutions = require('./Evolutions');
 const Team = require('./Team'); 
 const User = require('./User');
 
 // Define a one-to-many relationship where a Poke can have many Evolutions
-Pokemon.hasMany(Evolutions, {
+Pokes.hasMany(Evolutions, {
   foreignKey: 'poke_id', 
   onDelete: 'CASCADE'
 });
 
 // Define a many-to-one relationship where an Evolution belongs to a single Poke
-Evolutions.belongsTo(Pokemon, {
+Evolutions.belongsTo(Pokes, {
   foreignKey: 'poke_id'
 });
 
@@ -27,4 +27,4 @@ Team.belongsTo(User, {
 });
 
 // Export the models and associations for use in other parts of the application
-module.exports = { Pokemon, Evolutions, Team, User };
+module.exports = { Pokes, Evolutions, Team, User };
