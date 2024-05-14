@@ -1,5 +1,5 @@
 <!-- This is the header section with the developer's name and navigation links -->
-<h1>{{gotta code them all}}</h1>
+<h1>Gotta Code 'em All</h1>
 <nav>
     <ul>
         <li><a href="/home">Home</a></li>
@@ -19,10 +19,11 @@
 </div>
 <!-- This is the portfolio section with a project card displaying project information -->
 <div>
-    <h2>Gotta code em all</h2>
+    <h2>Pick your pokemon</h2>
     {{#each pokemon}}
         <div class="pokemon-card">
-            <img src="{{projectImage}}" alt="{{projectTitle}}">
+            {{!-- for the sprits images or picture links for pokemon --}}
+            <img src="{{sprits}}" alt="{{projectTitle}}">
             <h3>{{projectTitle}}</h3>
             <p>{{projectDescription}}</p>
             <a href="{{projectLink}}">View Project</a>
@@ -33,6 +34,7 @@
 <!-- This is the contact section with a simple contact form -->
 <div>
     <h2>signup</h2>
+    {{!-- need to add signup routes to homepage --}}
     <form>
         <label for="username">username:</label>
         <input type="text" id="username" name="name">

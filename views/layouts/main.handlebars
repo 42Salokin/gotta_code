@@ -7,14 +7,17 @@
   <title>Fund My Project!</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="path/to/materialize.css">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <span role="img" aria-label="money">💸</span>
-        {{!-- change this to  --}}
+        {{!-- money is a gag joke --}}
+        {{!-- pokeball editing to open --}}
+        <span role="img" aria-label="pokeball">💸</span>
+        {{!-- change this to --}}
         <a href="/"></a>
       </h1>
       <nav>
@@ -30,13 +33,19 @@
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
+{{!-- this is supposed to be materialize CSS testing code --}}
+      <div class="container">
+        <h1 class="blue-text text-darken-2">Materialize CSS Test</h1>
+        <button class="btn waves-effect waves-light">Button</button>
+      </div>
+
     </main>
     <footer>
       {{!-- {{> myPartial }} --}}
-     <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
+      <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
         { prefix: "please drop by any time" }
-     </script> 
-     
+      </script>
+
     </footer>
   </div>
 
