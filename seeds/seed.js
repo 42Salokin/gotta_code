@@ -1,4 +1,6 @@
 const sequelize = require('../config/connection');
+const { Pokemon, Evolutions } = require('../models');
+
 
 const logout = async () => {
     const pokeId = 1;
@@ -10,28 +12,29 @@ const logout = async () => {
   
     if (response.ok) {
         const data = await response.json();
-        console.log(data.id, data.name, data.types[0].type.name, data.types[1].type.name); // Log the JSON data
+        seedDatabase(data);
         } else {
       alert(response.statusText);
     }
   };
 
   logout();
-// const { Pokes, Evolutions } = require('../models');
 
-// const seedDatabase = async () => {
-//     await sequelize.sync({ force: true });
-  
-//     const pokes = await Pokes.bulkCreate(pokeData, {
-//       individualHooks: true,
-//       returning: true,
-//     });
-  
-//     process.exit(0);
-//   };
+const seedDatabase = async (data) => {
+    await sequelize.sync({ force: true });
+    const pokes = await Pokemon.create({
+        id: data.id,
+        name: data.name,
+        type1: data.types[0].type.name,
+        type2: data.types[1].type.name,
+      individualHooks: true,
+      returning: true,
+    });
+    console.log(`${data.id}, ${data.name}, ${data.types[0].type.name}, ${data.types[1].type.name} added to database`);
+    process.exit(0);
+  };
 
 //   dex("rayquaza-mega").then((pokemon) => {
 //     console.log(pokemon)
 // })
 
-console.log("seeding...");
