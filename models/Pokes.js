@@ -4,10 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Define a new class called Pokemon that extends Sequelize's Model class
-class Pokemon extends Model {}
+class Pokes extends Model {}
 
 // Initialize the Pokemon model with its attributes and options
-Pokemon.init(
+Pokes.init(
   {
     // Define the id attribute
     id: {
@@ -47,5 +47,5 @@ Pokemon.init(
 );
 
 // Export the Pokemon model for use in other parts of the application
-module.exports = Pokemon;
+module.exports = Pokes;
 
