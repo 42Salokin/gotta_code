@@ -24,5 +24,24 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  router.get('/signup', (req, res) => {
+    try {
+      res.render('login')
+    } catch (err) {
+      console.error(err)
+      res.status(500).json(err)
+    }
+  })
   
+  
+  router.get('/login', (req, res) => {
+    try {
+      res.render('login')
+    } catch (err) {
+      console.error(err)
+      res.status(500).json(err)
+    }
+  })
+
   module.exports = router;
