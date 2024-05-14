@@ -1,25 +1,25 @@
 <!-- This is the header section with the developer's name and navigation links -->
-<h1>{{developerName}}</h1>
+<h1>{{gotta code them all}}</h1>
 <nav>
     <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/login">login</a></li>
         <li><a href="/signup">signup</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/signup">signup</a></li>
-        <li><a href="/pokedex">Contact</a></li>
-        <li><a href="/">signup</a></li>
-        <li><a href="/">Contact</a></li>
+        <li><a href="/logout">logout</a></li>
+        <li><a href="/pokedex">pokedex</a></li>
+        <li><a href="/teams">teams</a></li>
+        <li><a href="/evolutions">evolutions</a></li>
+        <li><a href="/credits">credits</a></li>
     </ul>
 </nav>
 <!-- This is the main content section with the developer's bio and introductory text -->
 <div>
-    <h2>About Me</h2>
+    <h2></h2>
     <p>{{developerBio}}</p>
 </div>
 <!-- This is the portfolio section with a project card displaying project information -->
 <div>
-    <h2>Gotta</h2>
+    <h2>Gotta code em all</h2>
     {{#each pokemon}}
         <div class="pokemon-card">
             <img src="{{projectImage}}" alt="{{projectTitle}}">
@@ -32,15 +32,13 @@
 </div>
 <!-- This is the contact section with a simple contact form -->
 <div>
-    <h2>Contact Me</h2>
+    <h2>signup</h2>
     <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <label for="username">username:</label>
+        <input type="text" id="username" name="name">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
-        <button type="submit">Send</button>
+        <button type="submit">create</button>
     </form>
 </div>
 <!-- This is the resume section with a link to download the developer's resume -->
@@ -57,5 +55,5 @@
 <footer>
     <p>We hope to see you again!</p>
     <a href="{{githubProfile}}">GitHub</a>
-    <a href="{{linkedinProfile}}">LinkedIn</a>
+    
 </footer>
