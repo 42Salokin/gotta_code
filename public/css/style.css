@@ -1,0 +1,26 @@
+/* this does the body of the home page to look like a golden ultra ball style */
+body {
+    background: linear-gradient(135deg, #ffffff, #92900e, #000000);
+}
+/* for the links for the homepage */
+nav ul {
+    list-style-type: circle; /* Remove default list styling */
+    padding: 0;
+}
+
+nav ul li {
+    display: block;
+    margin-bottom: 10px; /* Add margin between list items */
+}
+
+nav ul li a {
+    text-decoration: blink; /* Remove underline */
+    color: #333; /* Default link color */
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+nav ul li a:hover {
+    color: #a71e62; /* Change color on hover */
+    transform: scale(1.1); /* Scale effect on hover */
+}
