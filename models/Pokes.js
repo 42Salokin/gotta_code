@@ -21,9 +21,13 @@ Pokemon.init(
       allowNull: false 
     },
     // Define the type attribute
-    type: {
+    type1: {
       type: DataTypes.STRING, 
       allowNull: false
+    },
+    type2: {
+      type: DataTypes.STRING, 
+      allowNull: true
     },
     // Define the evolves_to attribute
     evolves_to: {
