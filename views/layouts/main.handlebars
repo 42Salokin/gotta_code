@@ -18,12 +18,17 @@
         {{!-- pokeball editing to open --}}
         <span role="img" aria-label="pokeball">💸</span>
         {{!-- change this to --}}
-        <a href="/"></a>
+        <a href="/">home</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/profile">profile</a>
+                <a href="/logout">logout</a>
+        <a href="/pokedex">pokede
+        <a href="/teams">teams</a>
+        <a href="/evolutions">evolutions</a>
+        <a href="/credits">credits</a>
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
@@ -42,9 +47,9 @@
     </main>
     <footer>
       {{!-- {{> myPartial }} --}}
-      <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
+      {{!-- <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
         { prefix: "please drop by any time" }
-      </script>
+      </script> --}}
 
     </footer>
   </div>

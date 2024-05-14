@@ -1,14 +1,29 @@
-const express = require('express');
+const router = require('express').Router();
 const bcrypt = require('bcrypt'); // For password hashing
-const User = require('./models/user'); 
+const {User} = require('../../models'); 
 
-const app = express();
+
 
 // Middleware to parse incoming request bodies as JSON
-app.use(express.json());
+router.post('/', async (req, res) => {
+  console.log('here')
+try {
+  const signupuser = await User.create(req.body)
+  console.log(req.body)
+  req.session.save(() => {
+    req.session.user_id = signupuser.id 
+    req.session.name = signupuser.name
+    req.session.logged_in = true
+  })
+  res.status(200).json(signupuser)
+} catch (err) {
+  console.error(err)
+  res.status(500).json(err)
+}
+})
 
 // Login route handler (replace '/api/users/login' with your desired endpoint)
-app.post('/api/users/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   // Validate input (replace with more robust validation)
@@ -40,6 +55,15 @@ app.post('/api/users/login', async (req, res) => {
   }
 });
 
-// ... other application routes
+router.post('/logout', (req, res) =>{
+  if(req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end()
+    })
+  }
+  else {
+    res.status(404).end()
+  }
+})
 
-app.listen(3000, () => console.log('Server listening on port 3000'));
+module.exports = router
