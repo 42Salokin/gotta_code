@@ -1,9 +1,22 @@
 const router = require('express').Router();
-
-router.get('/', (req, res) => {
+ 
+router.get('/', async (req, res) => {
     try {
+    //   const dbGalleryData = await Gallery.findAll({
+    //     include: [
+    //       {
+    //         model: Painting,
+    //         attributes: ['filename', 'description'],
+    //       },
+    //     ],
+    //   });
   
-      res.render('homepage' //{galleries}
+    //   const galleries = dbGalleryData.map((gallery) =>
+    //     gallery.get({ plain: true })
+    //   );
+  
+      res.render('homepage' // { galleries }
+
 
       );
     } catch (err) {
