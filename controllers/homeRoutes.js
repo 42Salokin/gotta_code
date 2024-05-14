@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+ 
 router.get('/', async (req, res) => {
     try {
     //   const dbGalleryData = await Gallery.findAll({
@@ -17,11 +17,12 @@ router.get('/', async (req, res) => {
   
       res.render('homepage' // { galleries }
 
+
       );
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
   });
-
+  
   module.exports = router;
