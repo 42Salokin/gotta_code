@@ -23,7 +23,7 @@ Evolutions.init(
     // Define the 'trigger' attribute as a STRING type, not allowing null values
     trigger1: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     // Define the 'trigger_details1' attribute as JSON type, allowing null values
     trigger_details1: {
