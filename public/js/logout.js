@@ -17,3 +17,4 @@ const logout = async () => {
 };
 //Uses document.querySelector to find the element with the ID logout
 document.querySelector('#logout').addEventListener('click', logout);
+console.log('click')
