@@ -22,7 +22,7 @@ User.init(
       autoIncrement: true,
     },
     // Define the name attribute
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
