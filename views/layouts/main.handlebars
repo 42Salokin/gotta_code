@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <title>Gotta Code em all!</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="path/to/materialize.css">
+  <link rel="stylesheet" href="/gotta_code/public/css/materialize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
@@ -17,20 +16,20 @@
       <div class="flex-container">
         {{!-- moves the span tag into the home tag with the image still there --}}
 
-          {{!-- money is a gag joke --}}
+        {{!-- money is a gag joke --}}
         {{!-- pokeball editing to open --}}
         <li><span role="img" aria-label="pokeball">💸</span></li>
         {{!-- change this to --}}
-        <li><a href="/home">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/signup">Signup</a></li>
       </div>
       <h1>
         {{!-- money is a gag joke --}}
         {{!-- pokeball editing to open --}}
-        
+
         {{!-- change this to --}}
-        
+
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
@@ -38,23 +37,19 @@
         <a href="/profile">profile</a>
         <a href="/logout">logout</a>
         <a href="/pokedex">pokedex</a>
-          <a href="/teams">teams</a>
-          <a href="/evolutions">evolutions</a>
-          <a href="/credits">credits</a>
-          <button class="no-button" id="logout">logout</button>
-          {{else}}
-          <a href="/login">login</a>
-          {{/if}}
+        <a href="/teams">teams</a>
+        <a href="/evolutions">evolutions</a>
+        <a href="/credits">credits</a>
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
-      {{!-- this is supposed to be materialize CSS testing code --}}
-      <div class="container">
-        <h1 class="blue-text text-darken-2">Materialize CSS Test</h1>
-        <button class="btn waves-effect waves-light">Button</button>
-      </div>
+  
 
     </main>
     <footer>
@@ -66,16 +61,16 @@
 
     </footer>
   </div>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
   <script>function toggleMenu() {
-    var menu = document.querySelector('.menu');
-    menu.classList.toggle('active');
-}</script>
+      var menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }</script>
 </body>
 
 </html>

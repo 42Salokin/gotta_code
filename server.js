@@ -55,11 +55,20 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Static middleware pointing to the public folder
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Servers the routes to the server
 app.use(routes);
-
+// line of cone used for materialize
+// 
+app.use(express.static('public', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    }
+  }
+}));
 // Starts the server to begin listening
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on http://localhost:${PORT}`));
