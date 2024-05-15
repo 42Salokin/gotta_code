@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, email, password } = req.body;
   console.log("hello world")
-
+console.log(username, email, password)
   // Validate input (replace with more robust validation)
   if (!username || !password || !email) {
     return res.status(400).json({ message: 'Username, email, password are required' });
@@ -38,10 +38,13 @@ router.post('/login', async (req, res) => {
 
     // Check if user exists
     if (!user) {
+      console.log("user not right")
       return res.status(401).json({ message: 'Invalid credentials' });
+
     }
 
     if (!email) {
+      console.log("email not right")
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
@@ -49,6 +52,7 @@ router.post('/login', async (req, res) => {
     const passwordMatch = await user.checkPassword(req.body.password);
 
     if (!passwordMatch) {
+      console.log("password not right")
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 

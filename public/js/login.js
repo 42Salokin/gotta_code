@@ -2,7 +2,7 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
-  const username = document.querySelector('#username-login')
+  const username = document.querySelector('#username-login').value.trim();
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
@@ -14,6 +14,7 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
    
+    console.log(response)
 
     //If successful, the code inside this block executes
     if (response.ok) {
@@ -33,7 +34,7 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-
+  console.log(username, email, password)
   //This conditional statement checks if all three variables
   if (username && email && password) {
     //This block executes only if all required fields have values
