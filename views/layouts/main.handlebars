@@ -13,12 +13,24 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
+      {{!-- suppose to put them in a flex box row --}}
+      <div class="flex-container">
+        {{!-- moves the span tag into the home tag with the image still there --}}
+
+          {{!-- money is a gag joke --}}
+        {{!-- pokeball editing to open --}}
+        <li><span role="img" aria-label="pokeball">💸</span></li>
+        {{!-- change this to --}}
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+      </div>
       <h1>
         {{!-- money is a gag joke --}}
         {{!-- pokeball editing to open --}}
-        <span role="img" aria-label="pokeball">💸</span>
+        
         {{!-- change this to --}}
-        <a href="/">home</a>
+        
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
