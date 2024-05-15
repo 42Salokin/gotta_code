@@ -24,21 +24,21 @@
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a>
-                <a href="/logout">logout</a>
+        <a href="/logout">logout</a>
         <a href="/pokedex">pokede
-        <a href="/teams">teams</a>
-        <a href="/evolutions">evolutions</a>
-        <a href="/credits">credits</a>
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+          <a href="/teams">teams</a>
+          <a href="/evolutions">evolutions</a>
+          <a href="/credits">credits</a>
+          <button class="no-button" id="logout">logout</button>
+          {{else}}
+          <a href="/login">login</a>
+          {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
-{{!-- this is supposed to be materialize CSS testing code --}}
+      {{!-- this is supposed to be materialize CSS testing code --}}
       <div class="container">
         <h1 class="blue-text text-darken-2">Materialize CSS Test</h1>
         <button class="btn waves-effect waves-light">Button</button>
@@ -47,13 +47,14 @@
     </main>
     <footer>
       {{!-- {{> myPartial }} --}}
-      {{!-- <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
+      {{!--
+      <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
         { prefix: "please drop by any time" }
       </script> --}}
 
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
