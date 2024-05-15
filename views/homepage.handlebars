@@ -40,6 +40,30 @@
             <a href="{{projectLink}}">View Project</a>
             <a href="{{githubLink}}">GitHub Repository</a>
         </div>
+logout
+    {{/each}}
+</div>
+<!-- This is the contact section with a simple contact form -->
+{{!-- <div>
+    <h2>signup</h2>
+    {{!-- need to add signup routes to homepage --}}
+    <form>
+        <label for="username">username:</label>
+        <input type="text" id="username" name="name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <button type="submit">create</button>
+    </form>
+</div> --}}
+<!-- This is the resume section with a link to download the developer's resume -->
+<div>
+    <h2>Pick a pokemon to add to your team</h2>
+    <a href="{{resumeLink}}">Download Resume</a>
+    <ul>
+        {{#each skills}}
+            <li>{{this}}</li>
+
+ main
         {{/each}}
     </div>
     <!-- This is the contact section with a simple contact form -->
