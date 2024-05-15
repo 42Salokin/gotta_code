@@ -33,7 +33,15 @@ Pokes.init(
     evolves_to: {
       type: DataTypes.STRING,
       allowNull: true
-    }
+    },
+    // evolution_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true, 
+    //   references: {
+    //     model: 'Evolutions', // Name of the referenced model
+    //     key: 'id' // Key in the referenced model
+    //   }
+    // }
   },
   {
     // Provide the Sequelize connection instance

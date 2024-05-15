@@ -1,24 +1,38 @@
 const router = require('express').Router();
+const { Pokemon } = require('fast-poke-fetch');
+const { Pokes, Evolutions } = require('../models');
  
 router.get('/', async (req, res) => {
     try {
-    //   const dbGalleryData = await Gallery.findAll({
-    //     include: [
-    //       {
-    //         model: Painting,
-    //         attributes: ['filename', 'description'],
-    //       },
-    //     ],
-    //   });
-  
-    //   const galleries = dbGalleryData.map((gallery) =>
-    //     gallery.get({ plain: true })
-    //   );
-  
-      res.render('homepage' // { galleries }
+        res.render('homepage');
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
+//   GET one pokemon
+  router.get('/pokemon/:name', async (req, res) => {
+    const getId = await Pokemon(req.params.name)
+    console.log(getId);
+    try {
+        const dbPokemonData = await Pokes.findByPk(getId.id, {
+            include: [
+                {
+                    model: Evolutions,
+                    attributes: ['stage1', 'stage2', 'trigger1', 'trigger_details1', 'stage3', 'trigger2', 'trigger_details2'], 
+                },
+            ],
+        });
+        
 
-      );
+      if (!dbPokemonData) {
+        return res.status(404).json({ message: 'Pokemon not found' });
+      }
+  
+      const requestedPoke = dbPokemonData.get({ plain: true });
+    //   res.render('search', { requestedPoke });
+      res.json(dbPokemonData);
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
