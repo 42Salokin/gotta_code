@@ -49,6 +49,7 @@ app.use(session(sess));
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+// to help the CRUDE part of server.js, main.js, and style.css mix with main.handlebars is this still needed if its in the 
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
