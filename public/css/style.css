@@ -2,6 +2,7 @@
 body {
     background: linear-gradient(135deg, #ffffff, #92900e, #000000);
 }
+
 /* for the links for the homepage */
 nav ul {
     list-style-type: circle; /* Remove default list styling */
@@ -16,11 +17,49 @@ nav ul li {
 nav ul li a {
     text-decoration: blink; /* Remove underline */
     color: #333; /* Default link color */
-    font-size: 16px;
+    font-size: 25px;
     transition: all 0.3s ease; /* Smooth transition effect */
 }
 
 nav ul li a:hover {
     color: #a71e62; /* Change color on hover */
     transform: scale(1.1); /* Scale effect on hover */
+}
+/* for the menu collapse bars for main side nav bar */
+.container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {opacity: 0;}
+  
+  /* Rotate last bar */
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+/* this is supposed to put them in a row */
+  .flex-container {
+    display: flex;
+    justify-content: space-around; /* Adjust as needed */
+    align-items: center; /* Align items vertically in the center */
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.flex-container li {
+    margin: 0 10px; /* Add spacing between items */
 }
