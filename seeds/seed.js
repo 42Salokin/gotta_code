@@ -130,6 +130,31 @@ const seedDatabase = async (pokemon, evolutions) => {
 };
 
 const updateEvolvesTo = async () => {
+    // Retrieve all Pokes entries
+    const allPokes = await Pokes.findAll();
+    
+    for (const poke of allPokes) {
+        // Find the corresponding Evolutions entry where the Pokes entry's name matches stage1, stage2, or stage3
+        const evolution = await Evolutions.findOne({
+            where: {
+                [Op.or]: [
+                    { stage1: poke.name },
+                    { stage2: poke.name },
+                    { stage3: poke.name }
+                ]
+            }
+        });
+
+        if (evolution) {
+            // Update the evolution_id of the Pokes entry to be the corresponding Evolutions entry's id
+            await poke.update({
+                evolution_id: evolution.id
+            });
+            console.log(`Updated evolution_id for ${poke.name} to ${evolution.id}`);
+        } else {
+            console.log(`Corresponding evolution not found for ${poke.name}, skipping update.`);
+        }
+    }
     // Retrieve all Evolutions entries where stage2 is not null
     const evolvedPokemon1 = await Evolutions.findAll({
         where: {

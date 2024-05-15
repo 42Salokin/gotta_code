@@ -4,15 +4,15 @@ const Evolutions = require('./Evolutions');
 const Team = require('./Team'); 
 const User = require('./User');
 
-// Define a one-to-many relationship where a Poke can have many Evolutions
-Pokes.hasMany(Evolutions, {
-  foreignKey: 'poke_id', 
+// Define a many-to-one relationship where a Poke belongs to a single Evolution
+Pokes.belongsTo(Evolutions, {
+  foreignKey: 'evolution_id', 
   onDelete: 'CASCADE'
 });
 
-// Define a many-to-one relationship where an Evolution belongs to a single Poke
-Evolutions.belongsTo(Pokes, {
-  foreignKey: 'poke_id'
+// Define a one-to-many relationship where an Evolution belongs to many Pokes
+Evolutions.hasMany(Pokes, {
+  foreignKey: 'evolution_id'
 });
 
 // Define a one-to-many relationship where a User can have many Teams
