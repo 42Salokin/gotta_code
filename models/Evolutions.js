@@ -4,10 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Define the Evolution model class, extending the Sequelize Model class
-class Evolution extends Model {}
+class Evolutions extends Model {}
 
 // Initialize the Evolution model with its attributes and options
-Evolution.init(
+Evolutions.init(
   {
     // Define the 'id' attribute as an INTEGER type, primary key, and auto-incrementing
     id: {
@@ -15,16 +15,37 @@ Evolution.init(
       primaryKey: true,
       autoIncrement: true
     },
-    // Define the 'trigger' attribute as a STRING type, not allowing null values
-    trigger: {
+    stage1: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // Define the 'min_level' attribute as an INTEGER type, not allowing null values
-    min_level: {
-      type: DataTypes.INTEGER,
+    // Define the 'trigger' attribute as a STRING type, not allowing null values
+    trigger1: {
+      type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    // Define the 'trigger_details1' attribute as JSON type, allowing null values
+    trigger_details1: {
+      type: DataTypes.JSON,
+      allowNull: true
+    },
+    stage2: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    trigger2: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    // Define the 'trigger_details2' attribute as JSON type, allowing null values
+    trigger_details2: {
+      type: DataTypes.JSON,
+      allowNull: true
+    },
+    stage3: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
   },
   {
     // Provide configuration options for the model
@@ -32,9 +53,10 @@ Evolution.init(
     timestamps: false, 
     freezeTableName: true, 
     underscored: true, 
-    modelName: 'evolution' 
+    modelName: 'evolutions' 
   }
 );
 
+
 // Export the Evolution model for use in other parts of the application
-module.exports = Evolution;
+module.exports = Evolutions;
