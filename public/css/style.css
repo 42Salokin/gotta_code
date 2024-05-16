@@ -30,7 +30,9 @@ html {
 /* to turn it into a top nav bar MAYBE? */
 /* top nav bar */
 
-
+.menu{
+  display: none;
+}
 .menu.active {
   display: block; /* Display when active */
   
@@ -40,6 +42,14 @@ html {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+ #show-dangit {
+  display: block;
+ }
+a.sidenav-trigger i {
+  height: 64px !important;
+  line-height: 64px !important;
+  display: block !important;
 }
 
 .menu li {
