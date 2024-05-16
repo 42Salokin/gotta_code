@@ -2,36 +2,80 @@
   <div class="col-md-6">
     <h2>I choose you...</h2>
 
-    <form class="form login-form">
+    <form class="form search-form">
       <div class="form-group">
         <label for="search">pokemon name:</label>
-        <input class="form-input" type="text" id="search" />
+        <input class="form-input" type="text" id="search" autocomplete="off" />
+        <ul id="suggestions"></ul> <!-- Placeholder for suggestions -->
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">search</button>
       </div>
     </form>
   </div>
+</div>
 
-  {{!-- {{#if pokemon.length}} --}}
+{{!-- <script>
+  const searchInput = document.querySelector('#search');
+  const suggestionsList = document.querySelector('#suggestions');
+
+  searchInput.addEventListener('input', async (event) => {
+    const searchValue = event.target.value.trim();
+    if (searchValue) {
+      try {
+        const response = await fetch(`/search/${searchValue}`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+          const suggestions = await response.json();
+          renderSuggestions(suggestions);
+        } else {
+          console.error('Failed to fetch suggestions:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching suggestions:', error);
+      }
+    } else {
+      clearSuggestions();
+    }
+  });
+
+  function renderSuggestions(suggestions) {
+    suggestionsList.innerHTML = ''; // Clear previous suggestions
+    suggestions.forEach(suggestion => {
+      const li = document.createElement('li');
+      li.textContent = suggestion.name;
+      suggestionsList.appendChild(li);
+    });
+  }
+
+  function clearSuggestions() {
+    suggestionsList.innerHTML = '';
+  }
+</script> --}}
+
+
+  {{#if pokemon}}
   <div class="col-md-6">
     <h3>{{pokemon.name}}!</h3>
-    <img src="{{pokemon.sprite}}" alt="Pokemon Sprite">
-
-
-    {{!-- {{#each pokemon as |poke|}} --}}
-    
+    <img src="{{pokemon.sprite}}" alt="Pokemon Sprite">    
     <div class="row mb-2">
       <div class="col-md-8">
         <h4>#{{pokemon.id}}</h4>
         <h4>{{pokemon.type}} type</h4>        
         <h4>{{pokemon.evolution}}</h4>
         <h4>{{pokemon.trigger}}</h4>
+        {{#if pokemon.itemSprite}}
+            <img src="{{pokemon.itemSprite}}" alt="Item Sprite">    
+        {{/if}}
+        <h5>Add to <a href="#" id="addToPokedex" data-pokemon-id="{{pokemon.id}}">Pokedex</a>?</h5>
+        <p id="addToPokedexResponse"></p> <!-- Empty paragraph to display response -->
       </div>
     </div>
-    {{!-- {{/each}} --}}
   </div>
-  {{!-- {{/if}} --}}
 </div>
+  {{/if}}
 
-<script src="../public/js/search.js"></script>
+<script src="/js/search.js"></script>
