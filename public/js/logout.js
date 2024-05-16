@@ -6,7 +6,7 @@ const logout = async () => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    // If successful, the code inside this block executes
+     // If successful, the code inside this block executes
     if (response.ok) {
         //Redirects the user to the homepage (/) after successful logout.
         document.location.replace('/');
