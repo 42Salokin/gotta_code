@@ -34,6 +34,11 @@ Pokes.init(
       type: DataTypes.STRING,
       allowNull: true
     },
+    pokedex: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false 
+    },    
     // evolution_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: true, 
