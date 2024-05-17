@@ -35,28 +35,19 @@
       {{!-- suppose to put them in a flex box row --}}
       <div class="flex-container">
 
- loginworking
-        {{!-- money is a gag joke --}}
-        {{!-- pokeball editing to open --}}
-        <li><span role="img" aria-label="pokeball">💸</span></li>
-        {{!-- change this to --}}
-        <li><a href="/">Home</a></li>
-
-main
-      </div>
-
       <!-- Conditionally render login or logout links -->
-      {{#if logged_in}}
-      <a href="/profile">profile</a>
-      <a href="/logout">logout</a>
+      {{!-- {{#if logged_in}} --}}
+      {{!-- <a href="/profile">profile</a> --}}
       <a href="/api/pokedex">pokedex</a>
       <a href="/api/team">teams</a>
       <a href="/api/search">search</a>
+      {{!-- <a href="/api/logout">logout</a> --}}
+
       {{!-- <a href="/credits">credits</a> --}}
-      <button class="no-button" id="logout">logout</button>
-      {{else}} 
-      <a href="/login">login</a>
-      {{/if}}
+      {{!-- <button class="no-button" id="logout">logout</button> --}}
+      {{!-- {{else}}  --}}
+      {{!-- <a href="/login">login</a> --}}
+      {{!-- {{/if}} --}}
       
 
       
@@ -70,9 +61,10 @@ main
             <li><a href="/">Home</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
-            <li><a href="/pokedex">Pokedex</a></li>
+            <li><a href="/api/pokedex">Pokedex</a></li>
             <li><a href="/api/team">Teams</a></li>
             <li><a href="/api/search">search</a></li>
+            {{!-- <li><a href="/api/logout">logout</a></li> --}}
             {{!-- <li><a href="/credits">credits</a></li> --}}
           </ul>
 
