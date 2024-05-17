@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const { Pokemon } = require('fast-poke-fetch');
 const { Pokes, Evolutions } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 function cap(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         res.render('search');
     } catch (err) {
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
   });
 
   //   GET one pokemon
-  router.get('/:name', async (req, res) => {
+  router.get('/:name', withAuth, async (req, res) => {
     const getId = await Pokemon(req.params.name)
     console.log(getId);
     try {

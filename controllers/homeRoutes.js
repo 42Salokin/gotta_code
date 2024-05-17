@@ -1,6 +1,28 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 // const { Pokemon } = require('fast-poke-fetch');
 // const { Pokes, Evolutions } = require('../models');
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged-in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+console.log("===========================================================================")
+    console.log(user)
+    console.log("===========================================================================")
+    // Pass user data to the Handlebars template
+    res.render('profile', {
+     user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
  
 router.get('/', async (req, res) => {
     try {
@@ -18,8 +40,7 @@ router.get('/', async (req, res) => {
       console.error(err)
       res.status(500).json(err)
     }
-  })
-  
+  });  
   
   router.get('/login', (req, res) => {
     try {
@@ -28,6 +49,8 @@ router.get('/', async (req, res) => {
       console.error(err)
       res.status(500).json(err)
     }
-  })
+  });
 
   module.exports = router;
+
+  

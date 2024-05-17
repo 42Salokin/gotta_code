@@ -5,8 +5,8 @@ const logout = async () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });
-
-     // If successful, the code inside this block executes
+    
+    // If successful, the code inside this block executes
     if (response.ok) {
         //Redirects the user to the homepage (/) after successful logout.
         document.location.replace('/');
@@ -17,4 +17,4 @@ const logout = async () => {
 };
 //Uses document.querySelector to find the element with the ID logout
 document.querySelector('#logout-button').addEventListener('click', logout);
-console.log('click')
+

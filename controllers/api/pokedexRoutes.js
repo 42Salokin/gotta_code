@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const { Pokemon } = require('fast-poke-fetch');
 const { Pokes, Evolutions, Team } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 function cap(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
 // Define a route to handle the GET request for the Pokedex
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         // Query the database for all entries where pokedex property is true
         const dbpokedexEntries = await Pokes.findAll({
@@ -114,7 +115,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/teamList', async (req, res) => {
+router.get('/teamList', withAuth, async (req, res) => {
     const teamList = await Team.findAll();
     if (teamList.length > 0) {
         res.json(teamList);
@@ -123,11 +124,50 @@ router.get('/teamList', async (req, res) => {
       }      
 });
 
-router.get('/addToTeam/:id', async (req, res) => {
-    const pokemonId = req.params.id;
-    await Pokes.update({ pokedex: true }, { where: { id: pokemonId } });
-    const pokeName = await Pokemon(pokemonId)
-    res.json({ message: `Congratulations! ${cap(pokeName.name)} was added to your Pokedex!` });
-});
+router.post('/addToTeam', async (req, res) => {
+    try {
+      // Destructure the data from the request body
+      const { teamName, pokemonName } = req.body;
+        console.log(teamName, pokemonName);
+      // Find the team by its name
+      const team = await Team.findOne({ where: { name: teamName } });
+  
+      // Check if the team exists
+      if (!team) {
+        console.log(`Team ${teamName} not found.`);
+        return res.json({ message: `Team ${teamName} not found.` });
+      }
+    //   console.log(team);
+
+      // Check if the pokemon is already in the team
+      const pokemonColumns = ['pokemon1', 'pokemon2', 'pokemon3', 'pokemon4', 'pokemon5', 'pokemon6'];
+      const pokemonIndex = pokemonColumns.findIndex(column => team[column] === pokemonName);
+      if (pokemonIndex !== -1) {
+        console.log(`${pokemonName} is already in ${teamName}.`);
+        return res.json({ message: `${pokemonName} is already in ${teamName}.` });
+      }
+  
+      // Check if the team has already reached its maximum capacity
+      const numPokemon = pokemonColumns.filter(column => team[column] !== null && team[column] !== '').length;
+    //   console.log(`numPokemon ${numPokemon}`);
+      if (numPokemon >= 6) {
+        console.log(`${teamName} is full.`);
+        return res.json({ message: `${teamName} is full.` });
+      }
+  
+      // Add the pokemon to the first available column
+      const emptyColumn = pokemonColumns.find(column => team[column] === '');
+      await team.update({ [emptyColumn]: pokemonName });
+      console.log(emptyColumn);
+  
+      // Send a success response
+      console.log(`${pokemonName} has been added to ${teamName}.`);
+      return res.status(200).json({ message: `${pokemonName} has been added to ${teamName}.` });
+    } catch (error) {
+      console.error('Error adding pokemon:', error);
+      return res.status(500).json({ message: 'Failed to add pokemon.' });
+    }
+  });
+
 
 module.exports = router;
