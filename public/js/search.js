@@ -34,25 +34,29 @@ const searchHandler = async (event) => {
   // Select the anchor tag for adding to Pokedex
 const addToPokedexLink = document.querySelector('#addToPokedex');
 
-// Add an event listener to the anchor tag
-addToPokedexLink.addEventListener('click', async (event) => {
-  event.preventDefault(); // Prevent the default behavior of following the link
-  
-  const pokemonId = event.target.dataset.pokemonId; // Get the Pokemon ID from the data attribute
-  console.log(pokemonId);
-  try {
-    const response = await fetch(`/api/search/addToPokedex/${pokemonId}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });    
-    console.log(response);
-    if (response.ok) {
-      const responseData = await response.json(); // Parse the response JSON
-      addToPokedexResponse.textContent = responseData.message; // Display the response message
-    } else {
-      console.error('Failed to add to Pokedex:', response.statusText);
+
+if (addToPokedexLink) {
+  // Add an event listener to the anchor tag
+  addToPokedexLink.addEventListener('click', async (event) => {
+    event.preventDefault(); // Prevent the default behavior of following the link
+
+    const pokemonId = event.target.dataset.pokemonId; // Get the Pokemon ID from the data attribute
+    console.log(pokemonId);
+    try {
+      const response = await fetch(`/api/search/addToPokedex/${pokemonId}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      console.log(response);
+      if (response.ok) {
+        const responseData = await response.json(); // Parse the response JSON
+        addToPokedexResponse.textContent = responseData.message; // Display the response message
+      } else {
+        console.error('Failed to add to Pokedex:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding to Pokedex:', error);
     }
-  } catch (error) {
-    console.error('Error adding to Pokedex:', error);
-  }
-});
+  });
+}
+

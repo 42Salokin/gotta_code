@@ -2,6 +2,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Attach event listener to the add to team buttons
     const getTeamList = document.querySelectorAll('#addToTeam');
+
+    if (getTeamList.length === 0) {
+        console.log("No Pokémon in the Pokédex");
+        return; // Exit if there are no Pokémon to add to the team
+    }
+    
     getTeamList.forEach(button => {
         button.addEventListener("click", async (event) => {
             event.preventDefault(); // Prevent the default behavior of following the link
