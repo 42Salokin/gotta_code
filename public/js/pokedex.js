@@ -1,48 +1,55 @@
-  // Select the anchor tag for adding to Pokedex
-  const getTeamList = document.querySelector('#addToTeam');
-  const addToTeamResponse = document.querySelector('#addToTeamResponse');
 
-  // Add an event listener to the anchor tag
-  getTeamList.addEventListener('click', async (event) => {
-    event.preventDefault(); // Prevent the default behavior of following the link
-    
-    const pokemonId = event.target.dataset.pokemonId; // Get the Pokemon ID from the data attribute
-    console.log(pokemonId);
-    try {
-      const response = await fetch(`/api/pokedex/teamList`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });    
-      console.log(response);
-      if (response.ok) {
-        const responseData = await response.json(); // Parse the response JSON
-        console.log(responseData);
-        addToTeamResponse.textContent = '';
+document.addEventListener("DOMContentLoaded", function() {
+    // Attach event listener to the add to team buttons
+    const getTeamList = document.querySelectorAll('#addToTeam');
+    getTeamList.forEach(button => {
+        button.addEventListener("click", async (event) => {
+            event.preventDefault(); // Prevent the default behavior of following the link
+            const button = event.target;
+            const pokemonId = button.dataset.pokemonId; // Get the Pokemon ID from the data attribute
+            console.log(pokemonId);
 
-        responseData.forEach(team => {
-            const teamNameElement = document.createElement('li');
-            teamNameElement.textContent = team.name;
-            const id = `team_${team.id}`;
-            teamNameElement.id = id;
+            const parentElement = button.closest('.pokemon-container'); 
+            const addToTeamResponse = parentElement.querySelector('#addToTeamResponse');
+
+            try {
+                const response = await fetch(`/api/pokedex/teamList`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                });    
+                console.log(response);
+                if (response.ok) {
+                    const responseData = await response.json(); // Parse the response JSON
+                    console.log(responseData);
+
+                    addToTeamResponse.textContent = '';
+                    responseData.forEach(team => {
+                        const teamNameElement = document.createElement('li');
+                        teamNameElement.textContent = team.name;
+                        const id = `team_${team.id}`;
+                        teamNameElement.id = id;
           
-            // Add a click event listener to each team name element
-            teamNameElement.addEventListener('click', () => {
-              // Perform some action when the team name is clicked
-              addToTeam(team.name, pokemonId);
-              console.log(`Clicked on ${team.name}`);
-            });
-              addToTeamResponse.appendChild(teamNameElement);
+                        // Add a click event listener to each team name element
+                        teamNameElement.addEventListener('click', () => {
+                            // Perform some action when the team name is clicked
+                            addToTeam(team.name, pokemonId, addToTeamResponse);
+                            console.log(`Clicked on ${team.name}`);
+                        });
+                        addToTeamResponse.appendChild(teamNameElement);
+                    });
+                } else {
+                    console.error('Failed to add to team:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error adding to team:', error);
+            }
         });
-      } else {
-        console.error('Failed to add to team:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error adding to team:', error);
-    }
-  });
+    });
+});
+
 
 //    // Function to handle adding a pokemon to a team
-async function addToTeam(teamName, pokemonName) {
+async function addToTeam(teamName, pokemonName, addToTeamResponse) {
     try {
       // Send a fetch request to add the pokemon to the team
       const response = await fetch(`/api/pokedex/addToTeam`, {

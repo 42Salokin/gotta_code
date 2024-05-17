@@ -41,18 +41,78 @@ document.querySelector('#create-team-form').addEventListener('submit', async (ev
   document.addEventListener("DOMContentLoaded", function() {
     // Hide the create team section initially
     const createTeamForm = document.getElementById("create-team-form");
+    const createTeamButton = document.querySelector(".create-team-button");
+    const teamsSection = document.querySelector(".col-md-6");
+
     if (createTeamForm) {
-      createTeamForm.style.display = "none";
-      
-      // Toggle visibility when the "Create New Team" button is clicked
-      const createTeamButton = document.querySelector(".create-team-button");
-      createTeamButton.addEventListener("click", function() {
-        createTeamForm.style.display = (createTeamForm.style.display === "none") ? "block" : "none";
-        const teamsSection = document.querySelector(".col-md-6");
-        teamsSection.style.display = (teamsSection.style.display === "none") ? "block" : "none";
-      });
+        if (teamsSection) {
+            createTeamForm.style.display = "none";
+        } else {
+            createTeamForm.style.display = "block";
+        }
+
+        if (createTeamButton) {
+            createTeamButton.addEventListener("click", function() {
+                if (createTeamForm.style.display === "none") {
+                    createTeamForm.style.display = "block";
+                    if (teamsSection) {
+                        teamsSection.style.display = "none";
+                    }
+                } else {
+                    createTeamForm.style.display = "none";
+                    if (teamsSection) {
+                        teamsSection.style.display = "block";
+                    }
+                }
+            });
+        }
     }
-  });
+});
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Attach event listener to the delete buttons
+    const deleteButtons = document.querySelectorAll("#deleteButton");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", async (event) => {
+            event.preventDefault(); // Prevent default behavior of the button click
+            
+            // Get the ID of the element to be deleted
+            const teamName = event.target.dataset.teamId; 
+            const pokemonName = event.target.dataset.pokemonId; 
+            let deleteName;
+
+            if (teamName) {
+                console.log(teamName);
+                deleteName = teamName;
+            }
+
+            if (pokemonName) {
+                console.log(pokemonName);
+                deleteName = pokemonName;
+            }
+
+        try {
+            // Send a DELETE request to the backend
+            const response  = await fetch(`/api/team/${deleteName}`, {
+                method: 'DELETE'
+            })
+            // const result = await response.json();
+
+        if (response.ok) {
+            // Force a page reload
+            document.location.replace('/api/team');
+            console.log(response);
+        } else {
+            console.error('Failed to delete Pokemon:', response);
+        }
+    }   catch(error) {
+                console.error('Error deleting team:', error);
+            };
+        });
+    });
+});
+
   
   
   
