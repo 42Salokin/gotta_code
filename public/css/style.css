@@ -80,6 +80,16 @@ a.sidenav-trigger i {
   font-size: 12px;
   padding: 15px;
 }
+/* sticky footers to help stay at the bottom */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+main {
+  flex: 1 0 auto;
+}
 
 /* For mobile phones: */
 [class*="col-"] {

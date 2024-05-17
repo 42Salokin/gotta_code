@@ -1,32 +1,41 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gotta Code</title>
+  {{!-- this is for the title and new nav --}}
+  <nav id="main-nav">
+    <div class="nav-wrapper">
+      <title class="brand-logo center">Gotta Code em All</title>
+      <a href="#" class="brand-logo center"></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><span role="img" aria-label="pokeball">💸</span></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/jass.css">
+
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+
   <div class="flex-column justify-space-around nav-wrapper">
-    <nav class="display-flex justify-space-between align-center p-2 navbar">
+    <nav id="" class="display-flex justify-space-between align-center p-2 navbar">
       {{!-- suppose to put them in a flex box row --}}
       <div class="flex-container">
-        {{!-- moves the span tag into the home tag with the image still there --}}
 
-        {{!-- money is a gag joke --}}
-        {{!-- pokeball editing to open --}}
-        <li><span role="img" aria-label="pokeball">💸</span></li>
-        {{!-- change this to --}}
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Signup</a></li>
       </div>
-
 
       <!-- Conditionally render login or logout links -->
       {{#if logged_in}}
@@ -40,64 +49,77 @@
       {{else}}
       {{!-- <a href="/login">login</a> --}}
       {{/if}}
-          <a href="#" data-target="hamburger-menu" id="show-dangit" class="sidenav-trigger">
-<i class="material-icons">menu</i></a>
-        </a>
-   
-   
-         <ul class="sidenav" id="hamburger-menu">
+      <a href="#" data-target="hamburger-menu" id="show-dangit" class="sidenav-trigger">
+        <i class="material-icons">menu</i></a>
+      </a>
 
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
-            <li><a href="/pokedex">Pokedex</a></li>
-            <li><a href="/teams">Teams</a></li>
-            <li><a href="/api/search">search</a></li>
-            <li><a href="/credits">credits</a></li>
-          </ul>
-  
+
+      <ul class="sidenav" id="hamburger-menu">
+
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/pokedex">Pokedex</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/api/search">search</a></li>
+        <li><a href="/credits">credits</a></li>
+      </ul>
+
 
     </nav>
+
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
+
       {{{ body }}}
       {{!-- this is supposed to be materialize CSS testing code --}}
-
-
-    </main>
-    <footer>
-      <p>We hope to see you again!</p>
-      <a href="{{githubProfile}}">GitHub</a>
-
-
-      {{!-- {{> myPartial }} --}}
-      {{!--
-      <script> Handlebars.registerPartial('myPartial', '{{prefix}}');
-        { prefix: "please drop by any time" }
-      </script> --}}
-
-    </footer>
   </div>
   {{!--
+
   <script type="text/javascript" src="materialization/materialize.js"></script> --}}
   {{!--
+
   <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script> --}}
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
+
   <script src="/js/logout.js"></script>
   {{/if}}
+
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
       var options = {
         edge: 'right' // You can set it to 'left' or 'right' as needed
       };
-    var instances = M.Sidenav.init(elems, options);
-  });
- 
+      var instances = M.Sidenav.init(elems, options);
+    });
+
   </script>
- {{!-- haha cody <3 panda --}}
-</body>
+  {{!-- haha cody <3 panda --}} </body>
+    {{!--
+    <footer class="page-footer">
+       <div class="container">
+         <div class="row">
+           <div class="col l6 s12">
+             <h5 class="white-text">We hope to see you again!</h5>
+             <p class="grey-text text-lighten-4">who worked on this project together.</p>
+           </div>
+         <div class="col l4 offset-l2 s12">
+             <ul>
+               <li><a class="grey-text text-lighten-3" href="#!jeovan">GitHub</a></li>
+               <li><a class="grey-text text-lighten-3" href="">Github 2</a></li>
+               <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+               <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+            </div>
+          </div>
+       </div>
+      <div class="footer-copyright">
+      <div class="container">
+           </div>
+        </div>
+       </footer> --}}
 
 </html>
