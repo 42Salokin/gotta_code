@@ -35,10 +35,18 @@
       {{!-- suppose to put them in a flex box row --}}
       <div class="flex-container">
 
+ loginworking
+        {{!-- money is a gag joke --}}
+        {{!-- pokeball editing to open --}}
+        <li><span role="img" aria-label="pokeball">💸</span></li>
+        {{!-- change this to --}}
+        <li><a href="/">Home</a></li>
+
+main
       </div>
 
       <!-- Conditionally render login or logout links -->
-      {{!-- {{#if logged_in}} --}}
+      {{#if logged_in}}
       <a href="/profile">profile</a>
       <a href="/logout">logout</a>
       <a href="/api/pokedex">pokedex</a>
@@ -46,9 +54,12 @@
       <a href="/api/search">search</a>
       <a href="/credits">credits</a>
       <button class="no-button" id="logout">logout</button>
-      {{!-- {{else}} --}}
-      {{!-- <a href="/login">login</a> --}}
-      {{!-- {{/if}} --}}
+      {{else}} 
+      <a href="/login">login</a>
+      {{/if}}
+      
+
+      
           <a href="#" data-target="hamburger-menu" id="show-dangit" class="sidenav-trigger">
 <i class="material-icons">menu</i></a>
         </a>

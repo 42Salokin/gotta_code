@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
+const {User} = require('../models')
 // const { Pokemon } = require('fast-poke-fetch');
 // const { Pokes, Evolutions } = require('../models');
 
@@ -26,7 +27,9 @@ console.log("===================================================================
  
 router.get('/', async (req, res) => {
     try {
-        res.render('homepage');
+        res.render('homepage', {
+          logged_in: req.session.logged_in
+        });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
