@@ -10,28 +10,7 @@ Team.init(
       primaryKey: true,
       autoIncrement: true
     },
-    pokemon_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'team'
-
-
-  },
-
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    team_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },

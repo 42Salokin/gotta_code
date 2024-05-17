@@ -40,8 +40,7 @@ router.get('/', async (req, res) => {
       console.error(err)
       res.status(500).json(err)
     }
-  })
-  
+  });  
   
   router.get('/login', (req, res) => {
     try {
@@ -50,7 +49,7 @@ router.get('/', async (req, res) => {
       console.error(err)
       res.status(500).json(err)
     }
-  })
+  });
 
   module.exports = router;
 
