@@ -61,7 +61,7 @@ console.log(username, email, password)
       req.session.user_id = user.id;
       req.session.username = user.username;
       req.session.logged_in = true;
-
+      console.log(req.session)
       res.status(200).json({
         user,
         message: 'You are now logged in!',
