@@ -29,17 +29,17 @@
 
 
       <!-- Conditionally render login or logout links -->
-      {{#if logged_in}}
+      {{!-- {{#if logged_in}} --}}
       <a href="/profile">profile</a>
       <a href="/logout">logout</a>
-      <a href="/pokedex">pokedex</a>
-      <a href="/teams">teams</a>
-      <a href="/evolutions">evolutions</a>
+      <a href="/api/pokedex">pokedex</a>
+      <a href="/api/team">teams</a>
+      <a href="/api/search">search</a>
       <a href="/credits">credits</a>
       <button class="no-button" id="logout">logout</button>
-      {{else}}
+      {{!-- {{else}} --}}
       {{!-- <a href="/login">login</a> --}}
-      {{/if}}
+      {{!-- {{/if}} --}}
           <a href="#" data-target="hamburger-menu" id="show-dangit" class="sidenav-trigger">
 <i class="material-icons">menu</i></a>
         </a>
@@ -51,7 +51,7 @@
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
             <li><a href="/pokedex">Pokedex</a></li>
-            <li><a href="/teams">Teams</a></li>
+            <li><a href="/api/team">Teams</a></li>
             <li><a href="/api/search">search</a></li>
             <li><a href="/credits">credits</a></li>
           </ul>

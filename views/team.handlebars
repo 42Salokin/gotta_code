@@ -1,11 +1,25 @@
-
-  <!-- Create Team Form -->
+ {{#if teamList}}
+  <div class="col-md-6">
+        {{#each teamList as |team|}}
+  <h3>{{team.dataValues.name}} <button id="editButton">✎</button> <button id="deleteButton">🗑️</button></h3>
+  <div class="row mb-2">
+    <div class="col-md-8">
+      <h4>{{team.dataValues.pokemon1}} <button id="deleteButton">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon2}} <button id="deleteButton">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon3}} <button id="deleteButton">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon4}} <button id="deleteButton">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon5}} <button id="deleteButton">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon6}} <button id="deleteButton">🗑️</button></h4>
+    </div>
+  </div>
+{{/each}}
+    <button class="btn-small create-team-button">Create New Team</button>
+</div>
+ {{/if}}
+    <!-- Create Team Form -->
   <form id="create-team-form">
   <label for="team-name">Team Name:</label>
   <input type="text" id="team-name" name="team-name" required>
-
-css
-  <script src="../public/js/team.js"></script>
 
   <label for="pokemon1">Pokémon 1:</label>
   <input type="text" id="pokemon1" name="pokemon1">
@@ -27,7 +41,11 @@ css
 
   <button type="submit">Create Team</button>
 </form>
+ 
+
+
+
 
 <script src="/js/team.js"></script>
-</body>
-main
+
+

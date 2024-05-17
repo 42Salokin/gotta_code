@@ -1,4 +1,6 @@
-const { Team } = require('../models');
+const router = require('express').Router();
+const { Pokemon } = require('fast-poke-fetch');
+const { Pokes, Evolutions, Team } = require('../models');
 
 // Export an asynchronous function named createTeam that handles the creation of a new team
 exports.createTeam = async (req, res) => {

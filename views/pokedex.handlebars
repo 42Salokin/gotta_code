@@ -13,8 +13,8 @@
         {{#if pokemon.itemSprite}}
             <img src="{{pokemon.itemSprite}}" alt="Item Sprite">    
         {{/if}}
-        <h5>Add to a <a href="#" id="addToTeam" data-pokemon-id="{{pokemon.id}}">Team</a>?</h5>
-        <p id="addToTeamResponse"></p> <!-- Empty paragraph to display response -->
+        <h5>Add to a <a href="#" id="addToTeam" data-pokemon-id="{{pokemon.name}}">Team</a>?</h5>
+        <ul id="addToTeamResponse"></ul> <!-- Empty paragraph to display response -->
       </div>
     </div>
   </div>
@@ -23,3 +23,4 @@
   {{/if}}
 
 <script src="/js/pokedex.js"></script>
+

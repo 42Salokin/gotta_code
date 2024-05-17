@@ -13,10 +13,10 @@ document.querySelector('#create-team-form').addEventListener('submit', async (ev
     const pokemon6 = document.querySelector('#pokemon6').value.trim();
   
     // Send a POST request to the server to create a new team
-    const response = await fetch('/api/teams', {
+    const response = await fetch('/api/team', {
       method: 'POST',
       body: JSON.stringify({
-        team_name: teamName,
+        name: teamName,
         pokemon1,
         pokemon2,
         pokemon3,
@@ -31,10 +31,28 @@ document.querySelector('#create-team-form').addEventListener('submit', async (ev
   
     // If the response is successful, redirect to the profile page
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/api/team');
     } else {
       // If the response is not successful, show an alert with the status text
       alert(response.statusText);
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Hide the create team section initially
+    const createTeamForm = document.getElementById("create-team-form");
+    if (createTeamForm) {
+      createTeamForm.style.display = "none";
+      
+      // Toggle visibility when the "Create New Team" button is clicked
+      const createTeamButton = document.querySelector(".create-team-button");
+      createTeamButton.addEventListener("click", function() {
+        createTeamForm.style.display = (createTeamForm.style.display === "none") ? "block" : "none";
+        const teamsSection = document.querySelector(".col-md-6");
+        teamsSection.style.display = (teamsSection.style.display === "none") ? "block" : "none";
+      });
+    }
+  });
+  
+  
   
