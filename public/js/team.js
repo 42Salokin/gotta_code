@@ -70,48 +70,51 @@ document.querySelector('#create-team-form').addEventListener('submit', async (ev
 });
 
 
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Attach event listener to the delete buttons
     const deleteButtons = document.querySelectorAll("#deleteButton");
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", async (event) => {
-            event.preventDefault(); // Prevent default behavior of the button click
-            
-            // Get the ID of the element to be deleted
-            const teamName = event.target.dataset.teamId; 
-            const pokemonName = event.target.dataset.pokemonId; 
-            let deleteName;
 
-            if (teamName) {
-                console.log(teamName);
-                deleteName = teamName;
-            }
+    if (deleteButtons.length > 0) {
+        deleteButtons.forEach(button => {
+            button.addEventListener("click", async (event) => {
+                event.preventDefault(); // Prevent default behavior of the button click
+                
+                // Get the ID of the element to be deleted
+                const teamName = event.target.dataset.teamId; 
+                const pokemonName = event.target.dataset.pokemonId; 
+                let deleteName;
 
-            if (pokemonName) {
-                console.log(pokemonName);
-                deleteName = pokemonName;
-            }
+                if (teamName) {
+                    console.log(teamName);
+                    deleteName = teamName;
+                }
 
-        try {
-            // Send a DELETE request to the backend
-            const response  = await fetch(`/api/team/${deleteName}`, {
-                method: 'DELETE'
-            })
-            // const result = await response.json();
+                if (pokemonName) {
+                    console.log(pokemonName);
+                    deleteName = pokemonName;
+                }
 
-        if (response.ok) {
-            // Force a page reload
-            document.location.replace('/api/team');
-            console.log(response);
-        } else {
-            console.error('Failed to delete Pokemon:', response);
-        }
-    }   catch(error) {
-                console.error('Error deleting team:', error);
-            };
+                try {
+                    // Send a DELETE request to the backend
+                    const response = await fetch(`/api/team/${deleteName}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        // Force a page reload
+                        document.location.replace('/api/team');
+                        console.log(response);
+                    } else {
+                        console.error('Failed to delete Pokemon:', response);
+                    }
+                } catch (error) {
+                    console.error('Error deleting team:', error);
+                }
+            });
         });
-    });
+    }
 });
+
 
   
   
