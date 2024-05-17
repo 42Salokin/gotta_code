@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require('../../utils/auth');
 const { Pokemon } = require('fast-poke-fetch');
 const { Pokes, Evolutions, Team } = require('../../models');
 
@@ -40,5 +41,8 @@ router.post('/', async (req, res) => {
       res.status(500).json({ message: 'Failed to add team' });
     }
   });
+
+
+
 
 module.exports = router;
