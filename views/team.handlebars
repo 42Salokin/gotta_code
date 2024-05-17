@@ -1,15 +1,15 @@
  {{#if teamList}}
   <div class="col-md-6">
         {{#each teamList as |team|}}
-  <h3>{{team.dataValues.name}} <button id="editButton">✎</button> <button id="deleteButton">🗑️</button></h3>
+  <h3>{{team.dataValues.name}} <button id="editButton">✎</button> <button id="deleteButton" data-team-id="{{team.dataValues.name}}">🗑️</button></h3>
   <div class="row mb-2">
     <div class="col-md-8">
-      <h4>{{team.dataValues.pokemon1}} <button id="deleteButton">🗑️</button></h4>
-      <h4>{{team.dataValues.pokemon2}} <button id="deleteButton">🗑️</button></h4>
-      <h4>{{team.dataValues.pokemon3}} <button id="deleteButton">🗑️</button></h4>
-      <h4>{{team.dataValues.pokemon4}} <button id="deleteButton">🗑️</button></h4>
-      <h4>{{team.dataValues.pokemon5}} <button id="deleteButton">🗑️</button></h4>
-      <h4>{{team.dataValues.pokemon6}} <button id="deleteButton">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon1}} <button id="deleteButton" data-pokemon-id="{{team.dataValues.pokemon1}}">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon2}} <button id="deleteButton" data-pokemon-id="{{team.dataValues.pokemon2}}">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon3}} <button id="deleteButton" data-pokemon-id="{{team.dataValues.pokemon3}}">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon4}} <button id="deleteButton" data-pokemon-id="{{team.dataValues.pokemon4}}">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon5}} <button id="deleteButton" data-pokemon-id="{{team.dataValues.pokemon5}}">🗑️</button></h4>
+      <h4>{{team.dataValues.pokemon6}} <button id="deleteButton" data-pokemon-id="{{team.dataValues.pokemon6}}">🗑️</button></h4>
     </div>
   </div>
 {{/each}}

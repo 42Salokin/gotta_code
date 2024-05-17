@@ -8,7 +8,7 @@ function cap(str) {
     }
 
 // Define a route to handle the GET request for the Pokedex
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         // Query the database for all entries where pokedex property is true
         const dbpokedexEntries = await Pokes.findAll({
@@ -115,7 +115,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/teamList', withAuth, async (req, res) => {
+router.get('/teamList', async (req, res) => {
     const teamList = await Team.findAll();
     if (teamList.length > 0) {
         res.json(teamList);
