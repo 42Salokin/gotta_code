@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const { Pokemon } = require('fast-poke-fetch');
 const { Pokes, Evolutions, Team } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 function cap(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
 // Define a route to handle the GET request for the Pokedex
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         // Query the database for all entries where pokedex property is true
         const dbpokedexEntries = await Pokes.findAll({
@@ -114,7 +115,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/teamList', async (req, res) => {
+router.get('/teamList', withAuth, async (req, res) => {
     const teamList = await Team.findAll();
     if (teamList.length > 0) {
         res.json(teamList);
@@ -123,7 +124,7 @@ router.get('/teamList', async (req, res) => {
       }      
 });
 
-router.get('/addToTeam/:id', async (req, res) => {
+router.get('/addToTeam/:id', withAuth, async (req, res) => {
     const pokemonId = req.params.id;
     await Pokes.update({ pokedex: true }, { where: { id: pokemonId } });
     const pokeName = await Pokemon(pokemonId)
