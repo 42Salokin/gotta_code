@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
   console.log(req.body)
   try {
     const signupuser = await User.create(req.body)
-    console.log(req.body)
+    console.log(signupuser)
     req.session.save(() => {
       req.session.user_id = signupuser.id
       req.session.name = signupuser.name
