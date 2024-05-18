@@ -1,9 +1,6 @@
 # gotta_code
 Create/save teams of Pokemon with evolution info
-# 12 SQL: Employee Tracker
 
-# Note-Taker
-This is Day Challenge 11
 # Description
 Motivation
 Our motivation is to build a Pokémon site that allows users to discover the evolution levels and methods for each Pokémon.
