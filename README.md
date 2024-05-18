@@ -9,10 +9,10 @@ Motivation
 Our motivation is to build a Pokémon site that allows users to discover the evolution levels and methods for each Pokémon.
 
 Purpose
-This project was built to understand how to use Node.js and other web technologies.
+This app aims to provide a tracker for finding out what level or how your Pokemon evolves, as well as for building a team you like.
 
 Problem Solved
-This project addresses the need for accurate function use and correct spelling to ensure smooth functionality in Node.js applications. It has helped improve spelling accuracy and understanding of function usage.
+We got the Pokemon data, full CRUD, running well, and a working login and sign-up. The person's information is kept in the database so they can log in and out anytime. The teams are also saved on what Pokemon you want; you can have more than one team and delete the team when you don't want them. 
 
 Lessons Learned
 Understanding Node.js and its capabilities.
@@ -24,22 +24,19 @@ Installation
 Prerequisites
 Node.js
 Git
+npm pokmeon 
+Fast Poke Fetch
 Steps
 # Installation
-What I did was open git labs, and I made a git clone of the challenges I had to do into a separate folder, which I then made into my Challenges folder. 
-After that, I went into my git hub, created repositories for my Web-API, and connected them with my challenges folder using git bash. I also created my assets folder there.
-Then, I open the folder using Visual Studio code to make my index.html and style.css, and Javascript to use my project.
-I used my git bash to commit my work and pushed each time I made something new in my Task-Board project. I also used weather API to get the key.
-https://github.com/LemonTag/SQL
+We installed the npm Pokemon and Fast Poke Fetch to get the necessary Pokemon data to get the evolution levels.   
 https://github.com/42Salokin/gotta_code
-
 
 
 # credits
 My group meet-ups with my classes have helped 
 Worked with my amazing teammates Nicholas and Jeovan
 Cody Chase, the greatest TA ever, helped me show how to use Javascript and Node.
-Mary the besest TA ever, helped me with Javascript and Node.
+Mary, the best TA ever, helped me with Javascript and Node.
 
 
 
