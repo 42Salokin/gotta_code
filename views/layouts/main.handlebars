@@ -1,63 +1,33 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{!-- this is for the title and new nav --}}
-  <nav id="main-nav">
-    <div class="nav-wrapper">
-      <title class="brand-logo center">Gotta Code em All</title>
-      <a href="#" class="brand-logo center"></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><span role="img" aria-label="pokeball">💸</span></li>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Signup</a></li>
-      </ul>
-    </div>
-  </nav>
-
+  <title>Gotta Code em All</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
   <link rel="stylesheet" href="/css/jass.css">
-
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-
-  <div class="flex-column justify-space-around nav-wrapper">
-    <nav id="" class="display-flex justify-space-between align-center p-2 navbar">
-      {{!-- suppose to put them in a flex box row --}}
-      <div class="flex-container">
-
-      <!-- Conditionally render login or logout links -->
-      {{!-- {{#if logged_in}} --}}
-      {{!-- <a href="/profile">profile</a> --}}
-      <a href="/api/pokedex">pokedex</a>
-      <a href="/api/team">teams</a>
-      <a href="/api/search">search</a>
-      {{!-- <a href="/api/logout">logout</a> --}}
-
-      {{!-- <a href="/credits">credits</a> --}}
-      {{!-- <button class="no-button" id="logout">logout</button> --}}
-      {{!-- {{else}}  --}}
-      {{!-- <a href="/login">login</a> --}}
-      {{!-- {{/if}} --}}
-      
-
-      
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <nav id="main-nav">
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><span role="img" aria-label="pokeball">💸</span></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/api/pokedex">Pokedex</a></li>
+            <li><a href="/api/team">Teams</a></li>
+            <li><a href="/api/search">Search</a></li>
+          </ul>
           <a href="#" data-target="hamburger-menu" id="show-dangit" class="sidenav-trigger">
-<i class="material-icons">menu</i></a>
-        </a>
-   
-   
-         <ul class="sidenav" id="hamburger-menu">
-
+          <i class="material-icons">menu</i></a>  
+          <ul class="sidenav" id="hamburger-menu">
             <li><a href="/">Home</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
@@ -67,14 +37,19 @@
             {{!-- <li><a href="/api/logout">logout</a></li> --}}
             {{!-- <li><a href="/credits">credits</a></li> --}}
           </ul>
-
-    </nav>
+        </div>
+      </nav>
+    </header>
+    
 
     <main class="container container-fluid mt-5">
 
       {{{ body }}}
-      {{!-- this is supposed to be materialize CSS testing code --}}
+
+    </main>
   </div>
+  
+   
   {{!--
 
   <script type="text/javascript" src="materialization/materialize.js"></script> --}}
@@ -83,12 +58,7 @@
   <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script> --}}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-
   <script src="/js/logout.js"></script>
-  {{/if}}
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.sidenav');
@@ -97,9 +67,30 @@
       };
       var instances = M.Sidenav.init(elems, options);
     });
-
   </script>
-  {{!-- haha cody <3 panda --}} </body>
+</body>
+</html>
+
+{{!-- <div class="flex-column justify-space-around nav-wrapper">
+    <nav id="" class="display-flex justify-space-between align-center p-2 navbar"> --}}
+      {{!-- suppose to put them in a flex box row --}}
+      {{!-- <div class="flex-container"> --}}
+
+      <!-- Conditionally render login or logout links -->
+      {{!-- {{#if logged_in}} --}}
+      {{!-- <a href="/profile">profile</a> --}}
+      
+      
+      
+      {{!-- <a href="/api/logout">logout</a> --}}
+
+      {{!-- <a href="/credits">credits</a> --}}
+      {{!-- <button class="no-button" id="logout">logout</button> --}}
+      {{!-- {{else}}  --}}
+      {{!-- <a href="/login">login</a> --}}
+      {{!-- {{/if}} --}}
+
+      {{!-- haha cody <3 panda --}} 
     {{!--
     <footer class="page-footer">
        <div class="container">
@@ -123,5 +114,3 @@
            </div>
         </div>
        </footer> --}}
-
-</html>

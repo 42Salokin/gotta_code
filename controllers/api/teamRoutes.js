@@ -10,6 +10,7 @@ function cap(str) {
 
 router.get('/', async (req, res) => {
     const teamList = await Team.findAll();
+    console.log(teamList);
     if (teamList.length > 0) {
         // console.log(teamList);
         res.render('team', {teamList});
