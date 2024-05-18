@@ -8,7 +8,7 @@ function cap(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     const teamList = await Team.findAll();
     console.log(teamList);
     if (teamList.length > 0) {

@@ -39,13 +39,13 @@ const signupFormHandler = async (event) => {
   // if (username && email && password) {
     //This block executes only if all required fields have values
     // Specifies the URL endpoint of the API responsible for user signup.
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/', {
       method: 'POST',
       //Creates a JSON object containing the collected user information (username, email, password).
       body: JSON.stringify({ username: usernameel, email: emailel, password: passwordel }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+  console.log(response)
     //Waits for the response from the API and checks if the status code indicates success (usually in the 200-299 range).
     if (response.ok) {
       //Redirects the user to the /profile page after successful signup.

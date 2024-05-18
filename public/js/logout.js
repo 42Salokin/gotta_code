@@ -9,7 +9,7 @@ const logout = async () => {
     // If successful, the code inside this block executes
     if (response.ok) {
         //Redirects the user to the homepage (/) after successful logout.
-        document.location.replace('/');
+        document.location.replace('/api/team/');
     } else {
         //Displays a basic alert message with the status text from the response (e.g., "401 Unauthorized").
         alert(response.statusText);
