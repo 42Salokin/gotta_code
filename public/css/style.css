@@ -1,189 +1,44 @@
-/* this does the body of the home page to look like a golden ultra ball style */
-body {
-    background: linear-gradient(135deg, #ffffff, #92900e, #000000);
-}
 /* interactive response */
 * {
   box-sizing: border-box;
 }
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-}
-
-html {
-  font-family: "Lucida Sans", sans-serif;
-}
-
-.header {
-  background-color: #92900e;
-  color: #ffffff;
-  padding: 15px;
-}
-/* to turn it into a top nav bar MAYBE? */
-/* top nav bar */
-
-.menu{
-  display: none;
-}
-.menu.active {
-  display: block; /* Display when active */
-  
-}
-
-.menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
- #show-dangit {
-  display: block;
- }
-a.sidenav-trigger i {
-  height: 64px !important;
-  line-height: 64px !important;
-  display: block !important;
-}
-
-.menu li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #33b5e5;
-  color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-.menu li:hover {
-  background-color: #0099cc;
-}
-
-.aside {
-  background-color: #33b5e5;
-  padding: 15px;
-  color: #ffffff;
-  text-align: center;
-  font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-.footer {
-  background-color: #2e2b03;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  padding: 15px;
-}
-/* sticky footers to help stay at the bottom */
+/* this does the body of the home page to look like a golden ultra ball style */
 body {
+    /* background: linear-gradient(135deg, #ffffff, #92900e, #000000); */
+    font-family: 'Press Start 2P', cursive;
+}
+.nav-wrapper {
+  background-color: #FF0000; /* Pokéball red */
+}
+.nav-wrapper a {
+  color: white; /* White text */
+  font-size: 12px;
+}
+#title {
+  font-size: 20px;
+}
+.sidenav {
+  background-color: #196EEF; /* Great Ball blue */
+}
+.sidenav a {
+  color: white !important; /* White text */
+  font-size: 18px;
+}
+.brand-logo img {
+  height: 30px; /* Adjust size as needed */
+}
+.centered-links {
   display: flex;
-  min-height: 100vh;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
-
-main {
-  flex: 1 0 auto;
+.centered-links ul li {
+  margin: 0 20px; /* Add spacing between links */
 }
-
-/* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-}
-
-@media only screen and (min-width: 600px) {
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
-
-/* for the links for the homepage */
-nav ul {
-    list-style-type: circle; /* Remove default list styling */
-    padding: 0;
-}
-
-nav ul li {
-    display: block;
-    margin-bottom: 10px; /* Add margin between list items */
-}
-
-nav ul li a {
-    text-decoration: blink; /* Remove underline */
-    color: #333; /* Default link color */
-    font-size: 25px;
-    transition: all 0.3s ease; /* Smooth transition effect */
-}
-
-nav ul li a:hover {
-    color: #a71e62; /* Change color on hover */
-    transform: scale(1.1); /* Scale effect on hover */
-}
-/* for the menu collapse bars for main side nav bar */
-.container {
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-  
-  /* Rotate first bar */
-  .change .bar1 {
-    transform: translate(0, 11px) rotate(-45deg);
-  }
-  
-  /* Fade out the second bar */
-  .change .bar2 {opacity: 0;}
-  
-  /* Rotate last bar */
-  .change .bar3 {
-    transform: translate(0, -11px) rotate(45deg);
-  }
-/* this is supposed to put them in a row */
-  .flex-container {
-    display: flex;
-    justify-content: space-around; /* Adjust as needed */
-    align-items: center; /* Align items vertically in the center */
-    list-style: none; /* Remove default list styles */
-    padding: 0; /* Remove default padding */
-}
-
-.flex-container li {
-    margin: 0 10px; /* Add spacing between items */
+.content-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh; /* Ensure the container takes up the full viewport height */
 }

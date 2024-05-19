@@ -6,53 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gotta Code em All</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <nav id="main-nav">
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><span role="img" aria-label="pokeball">💸</span></li>
-            <li><a href="/">Home</a></li>
-            {{#if logged_in}}
-            <li><a href="/api/pokedex">Pokedex</a></li>
-            <li><a href="/api/team">Teams</a></li>
-            <li><a href="/api/search">Search</a></li>
-            <li><a href="/profile">profile</a></ul></li>
-            {{else}}
-             <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
-            {{/if}}
-          </ul>
-          <a href="#" data-target="hamburger-menu" id="show-dangit" class="sidenav-trigger">
-            <i class="material-icons">menu</i></a>
-          <ul class="sidenav" id="hamburger-menu">
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo left">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEyIDJhMTAgMTAgMCAwIDEgMTAgMTBhMTAgMTAgMCAwIDEtMTAgMTBBMTAgMTAgMCAwIDEgMiAxMkExMCAxMCAwIDAgMSAxMiAybTAgMmMtNC4wOCAwLTcuNDUgMy4wNS03Ljk0IDdoNC4wN2MuNDQtMS43MyAyLjAxLTMgMy44Ny0zczMuNDMgMS4yNyAzLjg3IDNoNC4wN2MtLjQ5LTMuOTUtMy44Ni03LTcuOTQtN20wIDE2YzQuMDggMCA3LjQ1LTMuMDUgNy45NC03aC00LjA3Yy0uNDQgMS43My0yLjAxIDMtMy44NyAzcy0zLjQzLTEuMjctMy44Ny0zSDQuMDZjLjQ5IDMuOTUgMy44NiA3IDcuOTQgN20wLTEwYTIgMiAwIDAgMC0yIDJhMiAyIDAgMCAwIDIgMmEyIDIgMCAwIDAgMi0yYTIgMiAwIDAgMC0yLTIiLz48L3N2Zz4=" alt="Pokeball">
+          </a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
+          <i class="material-icons">menu</i>
+        </a>
+        <div class="centered-links">
+          <ul class="hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
+            <li id="title">Gotta Code 'em All!</li>
             <li><a href="/api/pokedex">Pokedex</a></li>
             <li><a href="/api/team">Teams</a></li>
-            <li><a href="/api/search">search</a></li>
-            {{!-- <li><a href="/api/logout">logout</a></li> --}}
-            {{!-- <li><a href="/credits">credits</a></li> --}}
+            <li><a href="/api/search">Search</a></li>
           </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+          <li><a href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEyIDJhMTAgMTAgMCAwIDEgMTAgMTBhMTAgMTAgMCAwIDEtMTAgMTBBMTAgMTAgMCAwIDEgMiAxMkExMCAxMCAwIDAgMSAxMiAybTAgMmMtNC4wOCAwLTcuNDUgMy4wNS03Ljk0IDdoNC4wN2MuNDQtMS43MyAyLjAxLTMgMy44Ny0zczMuNDMgMS4yNyAzLjg3IDNoNC4wN2MtLjQ5LTMuOTUtMy44Ni03LTcuOTQtN20wIDE2YzQuMDggMCA3LjQ1LTMuMDUgNy45NC03aC00LjA3Yy0uNDQgMS43My0yLjAxIDMtMy44NyAzcy0zLjQzLTEuMjctMy44Ny0zSDQuMDZjLjQ5IDMuOTUgMy44NiA3IDcuOTQgN20wLTEwYTIgMiAwIDAgMC0yIDJhMiAyIDAgMCAwIDIgMmEyIDIgMCAwIDAgMi0yYTIgMiAwIDAgMC0yLTIiLz48L3N2Zz4=">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEyIDJhMTAgMTAgMCAwIDEgMTAgMTBhMTAgMTAgMCAwIDEtMTAgMTBBMTAgMTAgMCAwIDEgMiAxMkExMCAxMCAwIDAgMSAxMiAybTAgMmMtNC4wOCAwLTcuNDUgMy4wNS03Ljk0IDdoNC4wN2MuNDQtMS43MyAyLjAxLTMgMy44Ny0zczMuNDMgMS4yNyAzLjg3IDNoNC4wN2MtLjQ5LTMuOTUtMy44Ni03LTcuOTQtN20wIDE2YzQuMDggMCA3LjQ1LTMuMDUgNy45NC03aC00LjA3Yy0uNDQgMS43My0yLjAxIDMtMy44NyAzcy0zLjQzLTEuMjctMy44Ny0zSDQuMDZjLjQ5IDMuOTUgMy44NiA3IDcuOTQgN20wLTEwYTIgMiAwIDAgMC0yIDJhMiAyIDAgMCAwIDIgMmEyIDIgMCAwIDAgMi0yYTIgMiAwIDAgMC0yLTIiLz48L3N2Zz4=" alt="Pokeball">
+          </a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Signup</a></li>
+          <li><a href="/api/pokedex">Pokedex</a></li>
+          <li><a href="/api/team">Teams</a></li>
+          <li><a href="/api/search">Search</a></li>
+        </ul>
+  </header>
 
 
-    <main class="container container-fluid mt-5">
 
-      {{{ body }}}
-
-    </main>
-  </div>
-
+  <main>
+    <div class="content-container">
+    {{{ body }}}
+    </div>
+  </main>
+  
+{{!-- class="container container-fluid mt-5" --}}
 
   {{!--
 
