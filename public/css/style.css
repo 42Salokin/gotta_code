@@ -48,8 +48,9 @@ justify-content: center;
 align-items: center;
 height: 100vh; /* Ensure the container takes up the full viewport height */
 }
-.create-team-button, #logout-button, #submit-button {
-  background-color: #FF0000;
+.create-team-button, #logout-button, #submit-button, 
+#search-button, #login-button, #signup-button {
+  background-color: #196EEF;
   color: white;
 }
 button#deleteButton, button#editButton {
