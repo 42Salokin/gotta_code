@@ -105,8 +105,11 @@ router.get('/', withAuth, async (req, res) => {
 
               pokedexEntries.push(pokemon);
         });
+        console.log(req.session.logged_in);
         // Render the pokedex.handlebars view and pass the retrieved data
-        res.render('pokedex', { pokedexEntries });
+        res.render('pokedex', { pokedexEntries, 
+          logged_in: req.session.logged_in
+        });
         // res.json(pokedexEntries)
     } catch (error) {
         // If an error occurs, send back an error response
