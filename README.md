@@ -1,64 +1,73 @@
-# gotta_code
+# Gotta Code 'em All
 Create/save teams of Pokemon with evolution info
 
-# Description
-Motivation
+  ## Description
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  Motivation - 
 Our motivation is to build a Pokémon site that allows users to discover the evolution levels and methods for each Pokémon.
 
-Purpose
+Purpose - 
 This app aims to provide a tracker for finding out what level or how your Pokemon evolves, as well as for building a team you like.
 
-Problem Solved
+Problem Solved - 
 We got the Pokemon data, full CRUD, running well, and a working login and sign-up. The person's information is kept in the database so they can log in and out anytime. The teams are also saved on what Pokemon you want; you can have more than one team and delete the team when you don't want them. 
 
-Lessons Learned
+Lessons Learned - 
 Understanding Node.js and its capabilities.
 Utilizing the terminal for project management and debugging.
-Unique Features
+
+Unique Features - 
 This project lets users pick Pokémon and view their evolution details, including the required levels, items, and conditions.
 
-Installation
-Prerequisites
-Node.js
-Git
-npm pokmeon 
-Fast Poke Fetch
-Steps
-# Installation
-We installed the npm Pokemon and Fast Poke Fetch to get the necessary Pokemon data to get the evolution levels.   
-https://github.com/42Salokin/gotta_code
+  ## Table of Contents
 
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Credits](#credits)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Badges](#badges)
+  * [Questions](#questions)
 
-# credits
-My group meet-ups with my classes have helped 
-Worked with my amazing teammates Nicholas and Jeovan
-Cody Chase, the greatest TA ever, helped me show how to use Javascript and Node.
-Mary, the best TA ever, helped me with Javascript and Node.
+  ## Installation
 
+  To install, clone repo to user's local files. In the command line, run npm install to install dependencies. 
 
+  ## Usage
 
+Once repo is in local files, enter Postgres in the command line. Run \i db/schema.sql to create database. Exit Postgres. Run npm run seed to seed database. Run npm start to start application. Go to live site and interact with the links and input fields
 
-# License 
-MIT License
+![Alt text](./public/assets/Screenshot.png)
 
-Copyright (c) [2024] [Keegan Micu] [Jeovan Mills] [Nicholas Poulson]
+  ## Credits
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software") to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+  We would like to thank our classmates, TAs, and tutors in the UCF Bootcamp for their advice and access to resources. 
 
-The above copyright notice and this permission notice shall be included in all
+  ## License
 
-THE SOFTWARE IS PROVIDED "AS IS"WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  
+  This project is licensed under the MIT License.
 
-# Badges
+  [License: MIT](https://opensource.org/licenses/MIT)
+
+  ## Contributing
+
+  If you would like to make any contributions, please make any changes in a branch and submit a pull request with detailed comments.
+
+  ## Tests
+
+  See Usage 
+
+  ## Badges
 ![Static Badge](https://img.shields.io/badge/vscoding-lightblue) ![brettops tool](https://img.shields.io/badge/brettops-tool-209cdf?labelColor=162d50) ![Static Badge](https://img.shields.io/badge/javascript-yellow) ![Static Badge](https://img.shields.io/badge/style.css-lightblue) ![Static Badge](https://img.shields.io/badge/index.html-orange)
+
+  ## Questions
+
+  For more information, see my [GitHub](https://github.com/42Salokin)
+
+  Send any questions or comments to nicholas.dpoul@gmail.com
+
+
+

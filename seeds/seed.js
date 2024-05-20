@@ -154,6 +154,21 @@ const updateEvolvesTo = async () => {
         } else {
             console.log(`Corresponding evolution not found for ${poke.name}, skipping update.`);
         }
+
+        // Hard code the specific cases
+        if (poke.id === 107) {
+            await poke.update({
+                evolution_id: 47
+            });
+            console.log(`Hardcoded update: Set evolution_id to 47 for ${poke.name}`);
+        }
+
+        if (poke.id === 135 || poke.id === 136) {
+            await poke.update({
+                evolution_id: 67
+            });
+            console.log(`Hardcoded update: Set evolution_id to 67 for ${poke.name}`);
+        }
     }
     // Retrieve all Evolutions entries where stage2 is not null
     const evolvedPokemon1 = await Evolutions.findAll({
