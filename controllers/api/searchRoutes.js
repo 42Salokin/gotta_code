@@ -120,9 +120,11 @@ router.get('/', withAuth, async (req, res) => {
       
       if (pokemondata.name === 'eevee') {
         pokemon.trigger = 'By using a Water-stone, Thunder-stone, or Fire-stone';
-        pokemon.itemSprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png'+
-                            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png'+
-                            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png'
+        pokemon.itemSprites = [
+          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png',
+          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png',
+          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png'
+      ];
       }
 
       console.log(req.session.logged_in);

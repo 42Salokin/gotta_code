@@ -67,8 +67,10 @@
         <h4>{{pokemon.type}} type</h4>        
         <h4>{{pokemon.evolution}}</h4>
         <h4>{{pokemon.trigger}}</h4>
-        {{#if pokemon.itemSprite}}
-            <img src="{{pokemon.itemSprite}}" alt="Item Sprite">    
+        {{#if pokemon.itemSprites}}
+          {{#each pokemon.itemSprites}}
+            <img src="{{this}}" alt="Item Sprite">
+          {{/each}}
         {{/if}}
         <h5>Add to <a href="#" id="addToPokedex" data-pokemon-id="{{pokemon.id}}">Pokedex</a>?</h5>
         <p id="addToPokedexResponse"></p> <!-- Empty paragraph to display response -->

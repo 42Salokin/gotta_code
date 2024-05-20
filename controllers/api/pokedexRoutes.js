@@ -43,13 +43,15 @@ router.get('/', withAuth, async (req, res) => {
             }
 
             switch (poke.evolves_to) {
-                case null:
-                    evolution = "Doesn't evolve";
-                    break;
-              
-                default:
-                    evolution = `Evolves to ${cap(poke.evolves_to)}`
-                    break;
+              case null:
+                  evolution = "Doesn't evolve";
+                  break;
+              case 'vaporeon':
+                  evolution = "Evolves to Vaporeon, Jolteon, or Flareon";
+                  break;
+              default:
+                  evolution = `Evolves to ${cap(poke.evolves_to)}`
+                  break;
             }
 
             const pokemon = {
@@ -101,6 +103,15 @@ router.get('/', withAuth, async (req, res) => {
                 } else {                                                   //evolves by leveling up
                     pokemon.trigger = `At level ${method2.min_level}`
                 }
+              }
+
+              if (poke.name === 'eevee') {
+                pokemon.trigger = 'By using a Water-stone, Thunder-stone, or Fire-stone';
+                pokemon.itemSprites = [
+                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png',
+                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png',
+                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png'
+              ];
               }
 
               pokedexEntries.push(pokemon);
