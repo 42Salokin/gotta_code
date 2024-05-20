@@ -2,67 +2,101 @@
 * {
   box-sizing: border-box;
 }
+
 /* this does the body of the home page to look like a golden ultra ball style */
 body {
     /* background: linear-gradient(135deg, #ffffff, #92900e, #000000); */
     font-family: 'Press Start 2P', cursive;
 }
+
 .nav-wrapper {
   background-color: #FF0000; /* Pokéball red */
 }
+
 .nav-wrapper a {
   color: white; /* White text */
   font-size: 12px;
 }
+
 .title {
   color: white;
   font-size: 20px;
 }
+
 #title {
   color: white;
   font-size: 20px;
   text-align: center;
 }
+
 .sidenav {
   background-color: #196EEF; /* Great Ball blue */
 }
+
 .sidenav a {
   color: white !important; /* White text */
   font-size: 18px;
 }
+
 .brand-logo img {
   height: 30px; /* Adjust size as needed */
 }
+
 .centered-links {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
 }
+
 .centered-links ul li {
   margin: 0 20px; /* Add spacing between links */
 }
+
 .content-container {
 display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh; /* Ensure the container takes up the full viewport height */
 }
+
+.sprite-container {
+  display: inline-block;
+}
+
+.sprite {
+  width: 96px;
+  height: 96px;
+  animation: bounce 0.5s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-2px);
+  }
+}
+
 .create-team-button, #logout-button, #submit-button, 
 #search-button, #login-button, #signup-button {
   background-color: #196EEF;
   color: white;
 }
+
 button#deleteButton, button#editButton {
   background: none;
   border: none;
   font-size: 0.8em;
   cursor: pointer;
 }
+
 button#deleteButton {
   display: none;
   color: #FF0000;
 }
+
 button#editButton {
   color: #196EEF;
 }
