@@ -115,6 +115,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const editButton = document.querySelector('#editButton');
+    const deleteButtons = document.querySelectorAll('#deleteButton');
+  
+    if (editButton && deleteButtons.length > 0) {
+      editButton.addEventListener('click', function () {
+        deleteButtons.forEach(button => {
+          if (button.style.display === 'none' || button.style.display === '') {
+            button.style.display = 'inline-block';
+          } else {
+            button.style.display = 'none';
+          }
+        });
+      });
+    }
+  });
+  
+
 
   
   

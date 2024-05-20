@@ -9,7 +9,10 @@ function cap(str) {
 
 router.get('/', withAuth, async (req, res) => {
     try {
-        res.render('search');
+        console.log(req.session.logged_in);
+        res.render('search', {
+            logged_in: req.session.logged_in
+          });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -112,8 +115,10 @@ router.get('/', withAuth, async (req, res) => {
             pokemon.trigger = `At level ${method2.min_level}`
         }
       }      
-
-      res.render('search', { pokemon });
+      console.log(req.session.logged_in);
+      res.render('search', { pokemon,
+        logged_in: req.session.logged_in
+       });
       // res.json(pokemon);
     } catch (err) {
       console.log(err);

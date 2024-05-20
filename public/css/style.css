@@ -14,8 +14,14 @@ body {
   color: white; /* White text */
   font-size: 12px;
 }
-#title {
+.title {
+  color: white;
   font-size: 20px;
+}
+#title {
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 .sidenav {
   background-color: #196EEF; /* Great Ball blue */
@@ -41,4 +47,21 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+.create-team-button, #logout-button, #submit-button {
+  background-color: #FF0000;
+  color: white;
+}
+button#deleteButton, button#editButton {
+  background: none;
+  border: none;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+button#deleteButton {
+  display: none;
+  color: #FF0000;
+}
+button#editButton {
+  color: #196EEF;
 }

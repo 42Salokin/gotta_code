@@ -13,9 +13,14 @@ router.get('/', withAuth, async (req, res) => {
     console.log(teamList);
     if (teamList.length > 0) {
         // console.log(teamList);
-        res.render('team', {teamList});
+        console.log(req.session.logged_in);
+        res.render('team', {teamList,
+            logged_in: req.session.logged_in
+        });
       } else {
-        res.render('team');
+        res.render('team', {
+            logged_in: req.session.logged_in
+        });
       }      
 });
 
